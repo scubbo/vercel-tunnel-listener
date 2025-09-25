@@ -6,7 +6,7 @@ const port = 3000;
 const { server } = createTunnelServer();
 
 // Start the server
-server.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-  console.log(`WebSocket endpoint available at ws://localhost:${port}/accept`);
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${port}`);
+  console.log(`WebSocket endpoint available at ws://0.0.0.0:${port}/accept`);
 });
