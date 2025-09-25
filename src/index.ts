@@ -1,14 +1,12 @@
-import express, { Request, Response } from 'express';
+import { createTunnelServer } from './main';
 
-const app = express();
 const port = 3000;
 
-// Define a route handler for the default home page
-app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({message: 'Hello, World!'});
-});
+// Create the tunnel server
+const { server } = createTunnelServer();
 
-// Start the Express server
-app.listen(port, () => {
+// Start the server
+server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+  console.log(`WebSocket endpoint available at ws://localhost:${port}/accept`);
 });
